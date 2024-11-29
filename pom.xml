@@ -41,6 +41,35 @@
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
+  <groupId>org.codehaus.cargo</groupId>
+  <artifactId>cargo-maven2-plugin</artifactId>
+  <version>1.x.x</version>
+  <configuration>
+    <container>
+      <containerId>tomcat9x</containerId>
+      <type>remote</type>
+    </container>
+    <configuration>
+      <type>runtime</type>
+      <properties>
+        <cargo.remote.username>your-username</cargo.remote.username>
+        <cargo.remote.password>your-password</cargo.remote.password>
+        <cargo.hostname>localhost</cargo.hostname>
+        <cargo.servlet.port>8080</cargo.servlet.port>
+      </properties>
+    </configuration>
+    <deployables>
+      <deployable>
+        <groupId>your.group.id</groupId>
+        <artifactId>your-artifact-id</artifactId>
+        <type>war</type>
+        <context>your-context</context>
+      </deployable>
+    </deployables>
+  </configuration>
+</plugin>
+
+        <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.4.0</version>
         </plugin>
